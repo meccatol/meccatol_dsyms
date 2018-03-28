@@ -15,8 +15,11 @@ module Fastlane
         end
 
         dsym_paths = []
+        UI.verbose("dsym_paths = #{dsym_paths}")
         dsym_paths << params[:dsym_path] if params[:dsym_path]
+        UI.verbose("dsym_paths = #{dsym_paths}")
         dsym_paths += Actions.lane_context[SharedValues::DSYM_PATHS] if Actions.lane_context[SharedValues::DSYM_PATHS]
+        UI.verbose("dsym_paths = #{dsym_paths}")
 
         if dsym_paths.count == 0
           UI.error("Couldn't find any dSYMs, please pass them using the dsym_path option")
